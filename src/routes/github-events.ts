@@ -12,15 +12,15 @@ export const githubEvents: Route = {
     const slackbotAuthToken = event.pathParameters!['slackbotAuthToken']!;
 
     const eventName = event.headers['x-github-event'];
-    const body = JSON.parse(event.body!);
+    const body = JSON.parse(Buffer.from(event.body!, 'base64').toString('utf-8'));
 
-    if(eventName === 'pull_request' && body.action === 'opened') {
+    if (eventName === 'pull_request' && body.action === 'opened') {
       prOpen(slackbotAuthToken, body);
     }
 
-    if(eventName === 'pull_request_review_comment') {
-        prCommentReply(slackbotAuthToken, body);
-      if(body.comment.in_reply_to_id) {
+    if (eventName === 'pull_request_review_comment') {
+      prCommentReply(slackbotAuthToken, body);
+      if (body.comment.in_reply_to_id) {
       } else {
         prComment(slackbotAuthToken, body);
       }
