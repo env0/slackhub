@@ -5,7 +5,7 @@ export const slackEvents: Route = {
   path: 'slack/events',
   method: 'POST',
   eventHandler: async (event) => {
-    // const slackAppId = event.pathParameters!['slackAppId'];
+    // const slackbotAuthToken = event.pathParameters!['slackbotAuthToken'];
     const client = new aws.sdk.DynamoDB.DocumentClient();
 
     // Get previous value and increment our table entry.

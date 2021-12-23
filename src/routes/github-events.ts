@@ -6,23 +6,23 @@ import { prCommentReply } from './github-events/pr-comment-reply';
 import { prComment } from './github-events/pr-comment';
 
 export const githubEvents: Route = {
-  path: 'github/events/{slackAppId}',
+  path: 'github/events/{slackbotAuthToken}',
   method: 'POST',
   eventHandler: async event => {
-    const slackAppId = event.pathParameters!['slackAppId']!;
+    const slackbotAuthToken = event.pathParameters!['slackbotAuthToken']!;
 
     const eventName = event.headers['x-github-event'];
     const body = JSON.parse(event.body!);
 
     if(eventName === 'pull_request' && body.action === 'opened') {
-      prOpen(slackAppId, body);
+      prOpen(slackbotAuthToken, body);
     }
 
     if(eventName === 'pull_request_review_comment') {
-        prCommentReply(slackAppId, body);
+        prCommentReply(slackbotAuthToken, body);
       if(body.comment.in_reply_to_id) {
       } else {
-        prComment(slackAppId, body);
+        prComment(slackbotAuthToken, body);
       }
     }
     //

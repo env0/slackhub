@@ -1,1 +1,1 @@
-export const prCommentReply = (slackAppId: string, body: any) => {}
+export const prCommentReply = (slackbotAuthToken: string, body: any) => {}

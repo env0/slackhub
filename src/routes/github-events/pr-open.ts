@@ -1,1 +1,1 @@
-export const prOpen = (slackAppId: string, body: any) => {}
+export const prOpen = (slackbotAuthToken: string, body: any) => {}
