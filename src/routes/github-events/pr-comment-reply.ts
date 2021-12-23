@@ -22,6 +22,6 @@ export const prCommentReply = async (slackbotAuthToken: string, body: any) => {
   const slackThreadId = items.Items?.[0]?.slackThreadId;
 
   const slackChannel = pullRequestToChannelName(body.pull_request);
-  const slackName = getSlackUser(body.sender.login);
-  await axios.post(`https://slack.com/api/chat.postMessage?channel=${slackChannel}&text=${body.comment.body}&thread_ts=${slackThreadId}`,null, { headers: { 'Authorization': `Bearer ${slackbotAuthToken}` } });
+  const { name, image } = getSlackUser(body.sender.login);
+  await axios.post(`https://slack.com/api/chat.postMessage?channel=${slackChannel}&text=${body.comment.body}&thread_ts=${slackThreadId}&username=${name}&icon_url=${image}`,null, { headers: { 'Authorization': `Bearer ${slackbotAuthToken}` } });
 };
