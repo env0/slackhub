@@ -15,7 +15,7 @@ export const githubEvents: Route = {
     const body = JSON.parse(Buffer.from(event.body!, 'base64').toString('utf-8'));
 
     if (eventName === 'pull_request' && body.action === 'opened') {
-      prOpen(slackbotAuthToken, body);
+      await prOpen(slackbotAuthToken, body);
     }
 
     if(eventName === 'pull_request_review_comment') {
