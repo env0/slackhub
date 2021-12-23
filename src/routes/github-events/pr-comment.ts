@@ -11,8 +11,16 @@ export const prComment = async (slackbotAuthToken: string, body: any) => {
   // Create top-level comment
   const slackChannel = pullRequestToChannelName(body.pull_request);
   const { name, image } = getSlackUser(body.sender.login);
+  const text =
+    `
+\`\`\`
+${body.comment.diff_hunk}
+\`\`\`
+
+${body.comment.body}    
+`
   console.log(`trying to post ${body.comment.body}`)
-  const response = await axios.post(`https://slack.com/api/chat.postMessage?channel=${slackChannel}&text=${body.comment.body}&username=${name}&icon_url=${image}`,null, { headers: { 'Authorization': `Bearer ${slackbotAuthToken}` } });
+  const response = await axios.post(`https://slack.com/api/chat.postMessage?channel=${slackChannel}&text=${text}&username=${name}&icon_url=${image}`,null, { headers: { 'Authorization': `Bearer ${slackbotAuthToken}` } });
   const slackThreadId = response.data.ts;
 
   // Store comment in Dynamo
