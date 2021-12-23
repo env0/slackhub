@@ -18,9 +18,9 @@ export const githubEvents: Route = {
       prOpen(slackbotAuthToken, body);
     }
 
-    if (eventName === 'pull_request_review_comment') {
-      prCommentReply(slackbotAuthToken, body);
+    if(eventName === 'pull_request_review_comment') {
       if (body.comment.in_reply_to_id) {
+        await prCommentReply(slackbotAuthToken, body);
       } else {
         prComment(slackbotAuthToken, body);
       }

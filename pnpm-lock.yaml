@@ -5,6 +5,7 @@ specifiers:
   '@pulumi/awsx': ^0.30.0
   '@pulumi/pulumi': ^3.0.0
   '@types/jest': ^27.0.3
+  axios: 0.24.0
   jest: ^27.4.5
   prettier: ^2.5.1
   typescript: ^4.5.4
@@ -14,6 +15,7 @@ devDependencies:
   '@pulumi/awsx': 0.30.0_8fbb4a5d8281a51a8a37c716896d8f00
   '@pulumi/pulumi': 3.20.0
   '@types/jest': 27.0.3
+  axios: 0.24.0
   jest: 27.4.5
   prettier: 2.5.1
   typescript: 4.5.4
@@ -878,6 +880,14 @@ packages:
       xml2js: 0.4.19
     dev: true
 
+  /axios/0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
+    dependencies:
+      follow-redirects: 1.14.6
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /babel-jest/27.4.5_@babel+core@7.16.5:
     resolution: {integrity: sha512-3uuUTjXbgtODmSv/DXO9nZfD52IyC2OYTFaXGRzL0kpykzroaquCrD5+lZNafTvZlnNqZHt5pb0M08qVBZnsnA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -1386,6 +1396,16 @@ packages:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
+    dev: true
+
+  /follow-redirects/1.14.6:
+    resolution: {integrity: sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: true
 
   /form-data/3.0.1:
