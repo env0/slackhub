@@ -4,6 +4,8 @@ import { byGitHubDiscussion, slackThreadGithubDiscussionTable } from '../../tabl
 import { pullRequestToChannelName } from '../../commons/github/pull-request-to-channel-name';
 
 export const prCommentReply = async (slackbotAuthToken: string, body: any) => {
+  console.log('pr comment reply event')
+
   const client = new aws.sdk.DynamoDB.DocumentClient();
   const items = await client
     .query({

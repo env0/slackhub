@@ -11,9 +11,11 @@ export const githubEvents: Route = {
   eventHandler: async event => {
     const slackbotAuthToken = event.pathParameters!['slackbotAuthToken']!;
 
-    const eventName = event.headers['x-github-event'];
+    const eventName = event.headers['X-GitHub-Event'];
     const body = JSON.parse(Buffer.from(event.body!, 'base64').toString('utf-8'));
 
+    console.log({ body });
+    console.log({ eventName });
     if (eventName === 'pull_request' && body.action === 'opened') {
       await prOpen(slackbotAuthToken, body);
     }
