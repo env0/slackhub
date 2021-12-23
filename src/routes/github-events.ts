@@ -22,7 +22,7 @@ export const githubEvents: Route = {
       if (body.comment.in_reply_to_id) {
         await prCommentReply(slackbotAuthToken, body);
       } else {
-        prComment(slackbotAuthToken, body);
+        await prComment(slackbotAuthToken, body);
       }
     }
     //
