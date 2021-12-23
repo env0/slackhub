@@ -1,11 +1,11 @@
 import { Route } from '@pulumi/awsx/apigateway/api';
 import * as aws from '@pulumi/aws';
 
-export const githubEvents: Route = {
-  path: 'github/events/{slackAppId}',
+export const slackEvents: Route = {
+  path: 'slack/events',
   method: 'POST',
   eventHandler: async (event) => {
-    const slackAppId = event.pathParameters!['slackAppId'];
+    // const slackAppId = event.pathParameters!['slackAppId'];
     const client = new aws.sdk.DynamoDB.DocumentClient();
 
     // Get previous value and increment our table entry.

@@ -1,6 +1,6 @@
 import * as aws from '@pulumi/aws';
 
-const slackThreadGithubDiscussionTable = new aws.dynamodb.Table('slackThreadGithubDiscussion', {
+export const slackThreadGithubDiscussionTable = new aws.dynamodb.Table('slackThreadGithubDiscussion', {
   attributes: [
     { name: 'id', type: 'S' },
     { name: 'slackThreadId', type: 'S' },
