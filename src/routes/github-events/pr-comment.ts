@@ -21,8 +21,8 @@ export const prComment = async (slackbotAuthToken: string, body: any) => {
     TableName: slackThreadGithubDiscussionTable.name.get(),
     Item: {
       'id': crypto.randomBytes(16).toString("hex"),
-      'slackThreadId': { 'S': slackThreadId },
-      'githubDiscussionId': { 'S': `${body.comment.id}` }
+      'slackThreadId': slackThreadId ,
+      'githubDiscussionId':  `${body.comment.id}`
     }
   }).promise();
 };
