@@ -1,6 +1,6 @@
 import { Route } from '@pulumi/awsx/apigateway/api';
 import * as aws from '@pulumi/aws';
-import { byGitHubComment, slackThreadGithubDiscussionTable } from '../tables/slack-thread-github-discussion';
+import { byGitHubDiscussion, slackThreadGithubDiscussionTable } from '../tables/slack-thread-github-discussion';
 import { prOpen } from './github-events/pr-open';
 import { prCommentReply } from './github-events/pr-comment-reply';
 import { prComment } from './github-events/pr-comment';
