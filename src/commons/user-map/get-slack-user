@@ -1,7 +1,0 @@
-const mapping = {
-    'RLRabinowitz': 'Arel Rabinowitz',
-    'roni-frantchi': 'Roni',
-    'yani': 'yani'
-}
-
-export const getSlackUser = (githubUser: string) => return mapping[githubUser];
