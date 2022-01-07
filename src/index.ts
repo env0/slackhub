@@ -3,7 +3,7 @@ import { githubEvents } from './routes/github-events';
 import { slackEvents } from './routes/slack-events';
 
 // Create an API endpoint.
-let endpoint = new awsx.apigateway.API('api', {
+const endpoint = new awsx.apigateway.API('api', {
   routes: [githubEvents, slackEvents]
 });
 
